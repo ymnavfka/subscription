@@ -1,16 +1,38 @@
-# subscription
+# Subscription App (Flutter)
 
-A new Flutter project.
+Простое Flutter-приложение с онбордингом, paywall и главным экраном.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## Архитектура
 
-A few resources to get you started if this is your first Flutter project:
+- **Стейт-менеджмент:** минимальный, встроенный (`StatefulWidget` + `setState`)
+- **Хранение данных:** `SharedPreferences` для сохранения состояния подписки
+- **Навигация:** `Navigator` + `PageView` для онбординга
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Структура проекта
+
+lib/
+├─ main.dart # Главный файл приложения
+├─ onboarding.dart # Экран онбординга (PageView)
+├─ paywall.dart # Экран подписки с выбором тарифа
+└─ home.dart # Главный экран (контент)
+pubspec.yaml # Зависимости и настройки проекта
+
+markdown
+Copy code
+
+> В текущей реализации все экраны могут быть в одном файле (`main.dart`), для простоты.
+
+---
+
+## Возможные улучшения при большем времени
+
+- Вынести каждый экран в отдельный файл и подключить через роутинг
+- Добавить **индикаторы страниц** на онбординге (точки)
+- Сделать полноценный **выбор подписки** с визуальной подсветкой
+- Подключить **настоящий биллинг** через `in_app_purchase`
+- Добавить **темизацию** (Light/Dark) и анимации
+- Сделать **тесты** для основных экранов и логики подписки
